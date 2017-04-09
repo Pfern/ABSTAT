@@ -3,8 +3,7 @@
 ## for Bioinformatics Tool Users (using R)
 
 
-## Instructors: 
-## Lisete Sousa and Carina Silva
+### Instructors: Lisete Sousa and Carina Silva
 
 
 Course description
