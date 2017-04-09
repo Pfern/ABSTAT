@@ -1,4 +1,5 @@
-# ABSTAT17 Advanced Biostatistics 
+# ABSTAT17 
+# Advanced Biostatistics 
 ## for Bioinformatics Tool Users (using R)
 
 Course description
