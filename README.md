@@ -2,6 +2,11 @@
 # Advanced Biostatistics 
 ## for Bioinformatics Tool Users (using R)
 
+
+## Instructors: 
+## Lisete Sousa and Carina Silva
+
+
 Course description
 This course is targeted for Biostatistical techniques often employed in analytical tools for high throughput data and multivariate data. Participants can expect to attend a thorough set of lectures that will reveal the conceptual frameworks that are needed to understand the methods. Extensive hands-on practice will be the main vehicle for providing the skills and user independence. To keep things in context, the course is exclusively based on biological examples.
 We will be using custom-built R scripts and packages that are available from the CRAN and/or Bioconductor repositories.
