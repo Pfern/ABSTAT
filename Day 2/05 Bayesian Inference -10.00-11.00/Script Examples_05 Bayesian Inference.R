@@ -7,18 +7,18 @@
 # ---------------------------------------
 
 # X: nr. nucleotides A in a certain position of the sequence
-# X ~ Bernoulli(teta)
+# X ~ Bernoulli(theta)
 
 
-# Prior distribution: teta ~ Beta(a,b) 
+# Prior distribution: theta ~ Beta(a,b) 
 # initial hyperparameters: a=1 and b=1
 a<-1; b<-1
 
 # Sample 1  (t=sum_xi)
 n<-100; x<-43
 
-# Posterior distribution: teta|x ~ Beta(a*,b*)
-# Updated hyperparametrs: a*=t+a and b*=n-t+b (slide 24)
+# Posterior distribution: theta|x ~ Beta(a*,b*)
+# Updated hyperparametrs: a*=t+a and b*=n-t+b 
 a.star<-x+a; a.star   
 b.star<-n-x+b; b.star
 
@@ -31,16 +31,16 @@ lines(s,y.star,col="red")
 text(0.8,2,"prior")
 text(0.8,1.8,"posterior",col="red")
 
-# teta_mean = a*/(a*+b*)  (posterior mean)
+# theta_mean = a*/(a*+b*)  (posterior mean)
 a.star/(a.star+b.star)
 
-# P(teta<=teta_median|x)=0.5 --> teta_median=quantil_0.5  (posterior median)
+# P(theta<=theta_median|x)=0.5 --> theta_median=quantil_0.5  (posterior median)
 qbeta(0.5,a.star,b.star)
 
-# teta_mode = (a*-1)/(a*+b*-2)  (posterior mode)
+# theta_mode = (a*-1)/(a*+b*-2)  (posterior mode)
 (a.star-1)/(a.star+b.star-2)
 
-# credibal interval for teta for alpha=0.05
+# credible interval for theta with alpha=0.05
 # lower bound = quantil_0.025
 # upper bound = quantil_0.975
 qbeta(c(0.025,0.975),a.star,b.star)
