@@ -26,8 +26,8 @@ Mu<-Sigma2<-rep(0,ns) # store parameters' updates
 # Gibbs  Sampler
 # --------------
 
-tau<-1     # initialize tau to calculate mu^(0)
 m<-mean(y) # in order to calculate mu^(t)
+tau<-rgamma(1,n/2,sum((y-m)^2)/2); tau     # initialize tau to calculate mu^(0)
 
 for (i in 1:ns) {
   mu<- Mu[i]<-rnorm(1,m,1/(n*tau))
