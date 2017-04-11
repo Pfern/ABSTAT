@@ -31,16 +31,7 @@ theta.0
 ddirichlet(c(0.15,0.25,0.6),a.0) # Note: prob density function > 0
 
 
-# 3 Simulate vector theta
-# ------------------------
-
-# rdirichlet(x,alpha_updated)
-
-# a<-a.0 # Initialize in order to check the function
-rdirichlet(1,a+data) # Note: prob density function > 0
-
-
-# 4 Gibbs Sampler
+# 3 Gibbs Sampler
 # ----------------
 
 # a/b - Gibbs cicle
@@ -58,16 +49,16 @@ for(i in 1:5000)
 tail(theta.all.iter)
 
 
-# 5 Trace 7 Parameters estimation
+# 4 Trace 7 Parameters estimation
 # --------------------------------
 
 # a - Trace
 
-par(mfrow=c(3,1))
+par(mfrow=c(1,3))
 
-plot(1:5000,theta.all.iter[,1],main=expression(paste("Trace for ",theta[1])),ylab=expression(theta),xlab="iteration")
-plot(1:5000,theta.all.iter[,2],main=expression(paste("Trace for ",theta[2])),ylab=expression(theta),xlab="iteration")
-plot(1:5000,theta.all.iter[,3],main=expression(paste("Trace for ",theta[3])),ylab=expression(theta),xlab="iteration")
+plot(1:5000,theta.all.iter[,1],main=expression(paste("Trace for ",theta[1])),ylab=expression(theta),xlab="iteration",ylim=c(0.1,0.6))
+plot(1:5000,theta.all.iter[,2],main=expression(paste("Trace for ",theta[2])),ylab=expression(theta),xlab="iteration",ylim=c(0.1,0.6))
+plot(1:5000,theta.all.iter[,3],main=expression(paste("Trace for ",theta[3])),ylab=expression(theta),xlab="iteration",ylim=c(0.1,0.6))
 
 # b - Burn-in
 # Consider a burn-in period of 1000 (dependes on the runs)
