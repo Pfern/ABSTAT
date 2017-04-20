@@ -131,8 +131,13 @@ print(ci_mu)
 hist(boot_means, col="blue", nclass=30)
 
 # Classical parametric CI
-
+hist(x)
+plot(density(x))
+shapiro.test(x)
 t.test(x)
+
+
+#using boot package
 
 
 #==================================================
@@ -153,6 +158,8 @@ dim(x.star)
 
 mean.1000<-apply(x.star,1,mean)
 
+
+
 meanB<-mean(mean.1000)  #bootstrap estimate of the mean
 
 biasB<-meanB-mean(x)   #bias
@@ -169,6 +176,27 @@ for (i in 1:1000){
 se.B<-sqrt(sum(num)/999)
 
 
+
+#------------  95% confidence interval for mean
+
+CI<-quantile(mean.1000,c(0.025,0.975))
+
+#using boot package
+
+library(boot)
+
+#we need a function of the parameter that we whant to estimate
+#second argument "indeices" is the indices of the observations for bootstrap sample
+
+my.mean = function(x, indices){
+  return( mean( x[indices] ) )
+}
+
+data.boot<-boot(x,my.mean,1000)
+mode(data.boot)
+str(data.boot)
+ci.boots<-boot.ci(data.boot,0.95,type="perc")
+print(ci.boots)
 
 #==================================================================
 #Exercise 5 non-parametric Bootstrap CI for correlation coefficien
@@ -210,7 +238,7 @@ library(psychometric) # load package with function
 CIr(r=cor(x,y), n = 38, level = .95)
 
 #===========================================================================
-#Exercise 6 - non-parametric bootstrap  test of hypothesis for mean value
+#Exercise 6 - non-parametric bootstrap  test of hypothesis for the mean value
 #===========================================================================
 
 library(multtest)
@@ -297,7 +325,7 @@ for(i in 1:B){
   vz2<-var(z2.star)
   t.star[i]<-(zb1-zb2)/sqrt(vz1/n1+vz2/n2)
 }
-pvalue<-2*(sum(abs(t.star)>abs(t.obs))/B)
+pvalue<-(sum(abs(t.star)>abs(t.obs))/B)
 pvalue
 
 #parametric approach
@@ -325,7 +353,7 @@ for(i in 1:B){
   v2.star<-var(x2.star)
   t.perm[i]<-(m1.star-m2.star)/sqrt(v1.star/n1+v2.star/n2)
 }
-pvalor.perm<-2*(sum(abs(t.perm)>abs(t.obs))/B)
+pvalor.perm<-(sum(abs(t.perm)>abs(t.obs))/B)
 pvalor.perm
 
 
