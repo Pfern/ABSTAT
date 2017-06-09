@@ -1,4 +1,4 @@
-https://webmail.igc.gulbenkian.pt/horde3/imp/message.php?mailbox=%2A%2Asearch_is0wxw7w2ego44w80osw&index=268542&thismailbox=INBOX# ABSTAT17 
+
 # Advanced Biostatistics 
 ## for Bioinformatics Tool Users (using R)
 
