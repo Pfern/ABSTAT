@@ -1,4 +1,4 @@
-# ABSTAT17 
+https://webmail.igc.gulbenkian.pt/horde3/imp/message.php?mailbox=%2A%2Asearch_is0wxw7w2ego44w80osw&index=268542&thismailbox=INBOX# ABSTAT17 
 # Advanced Biostatistics 
 ## for Bioinformatics Tool Users (using R)
 
@@ -35,7 +35,8 @@ This level can also be obtained by attending another course in GTPB: The IBSTAT 
 Basic Familiarity with the R environment will be necessary. Please follow the exercise that we provide.
 Install R from http://cran.r-project.org/ following the instructions.
 Download and unzip the Tutorial folder that is made available here.
-Then:
+
+
 - Visualize the slides in "Tutorial R.pdf"
 - Follow the exercise in "Basic_Exercise.pdf"
 - For reference, we also provide a script with a correct set of R statements in sequence "Tutorial_script.R"
