@@ -24,7 +24,7 @@ Everybody using Bioinformatics methods is implicitly using statistical methods. 
 We will look into particular areas such Simulation, Bayesian Inference, Hidden Markov Chains and Multivariate Data Analysis methods with the attitude, eyes and brains of an experienced statistician that wants to understand how the methods work and systematic way.
 Course Pre-requisites
 Intermediate level knowledge in Statistics is necessary. There is no time to provide basic knowledge, so we will need to assume that accepted candidates have self-assessed for it in the following areas:
-- probabil
+- probability
 - conditional probability
 - distributions
 - statistical tests
