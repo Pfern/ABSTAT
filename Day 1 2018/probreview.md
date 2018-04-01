@@ -313,7 +313,7 @@ theta[534]
 **6.3** Plot the results
 
 <details><summary>Click Here to see the answer</summary><p>
-```r
+```{r}
 plot(theta,lik,xlab="theta",ylab="log likelihood",
 main="MLE estimation for theta")
 abline(v=theta[534],lty=2)
