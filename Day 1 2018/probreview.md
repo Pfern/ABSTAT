@@ -25,6 +25,7 @@ probabilities are associated with the values of the random variable.
 
 
 
+
 For practical computations R has built-in-functions for the binomial,
 normal, t-Student, F, etc.,  where _d_ stands for density, _p_ for (cumulative) probability distribution, _q_ for quantiles, and _r_ for drawing
 random samples.
@@ -74,6 +75,7 @@ dbinom(0,1,0.026)
 **1.2** Plot the probability mass function (pmf) of this distribution
 
 <details><summary>Click Here to see the answer</summary><p>
+ 
 ```r
   prob<-c(dbinom(0,1,0.026),dbinom(1,1,0.026))
   barplot(prob,ylab="P(X=k)",names.arg=c(0,1), width=1,xlim=c(0,4),ylim=c(0,1), main="Probability   mass function Ber(0.026)")
@@ -149,6 +151,8 @@ sqrt(20*0.7*0.3)
 </p></details>
 <br/>
 <br/>
+
+
 **Exercise 3.** What probability does this R code represent: pbinom(15,20,0.7)-pbinom(10,20,0.7)+dbinom(10,20,0.7)
 
 
@@ -186,6 +190,7 @@ $$E[X]=\mu,\quad var[X]=\sigma^2.$$
 
 
 <details><summary>Click Here to see the answer</summary><p>
+ 
 ```r
 #a)
 pnorm(1.2,1.6,0.42)
@@ -202,15 +207,10 @@ qnorm(0.15,1.6,0.42)
 
 All normal distributions can be converted into the standard normal curve by subtracting the mean and dividing by the standard deviation: 
 
-<details><summary>Click Here to see the answer</summary><p>
+ 
 $$ Z=\frac{X-\mu}{\sigma}$$
 
-</p></details>
-<br/>
-<br/>
-  
-    
-
+ 
 then $Z$ has a Normal(0, 1) distribution. Such $Z$ is called a __standard normal random variable__.  The scale of $Z$ has no units and it is called the standardized scale. 
 
 
@@ -222,6 +222,7 @@ log2 transformation and repeat the analysis. Use the qqnorm() and
 qqline() functions to get the normal QQ plot. Compare your results.
 
 <details><summary>Click Here to see the answer</summary><p>
+ 
 ```r
 set<-c(0.12, 0.24, 0.01, 0.16, 0.18, 0.55,0.89, 1.00, 1.45,
 2.5)
