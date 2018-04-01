@@ -67,6 +67,9 @@ select one person and observe their disease status, we define X to be 1 if they 
 ```r
 dbinom(0,1,0.026)
 ```
+</p></details>
+<br/>
+<br/>
 
 **1.2** Plot the probability mass function (pmf) of this distribution
 
@@ -75,7 +78,9 @@ dbinom(0,1,0.026)
   prob<-c(dbinom(0,1,0.026),dbinom(1,1,0.026))
   barplot(prob,ylab="P(X=k)",names.arg=c(0,1), width=1,xlim=c(0,4),ylim=c(0,1), main="Probability   mass function Ber(0.026)")
 ```
-
+</p></details>
+<br/>
+<br/>
 
 
 
@@ -141,7 +146,9 @@ mean_10<-20*0.7
 #e)
 sqrt(20*0.7*0.3)
 ```
-
+</p></details>
+<br/>
+<br/>
 **Exercise 3.** What probability does this R code represent: pbinom(15,20,0.7)-pbinom(10,20,0.7)+dbinom(10,20,0.7)
 
 
@@ -150,7 +157,9 @@ sqrt(20*0.7*0.3)
 ```r
 # P(10<=X<=20)
 ```
-
+</p></details>
+<br/>
+<br/>
 
 > **Normal Distribution $$X \sim N(\mu,\sigma)$$**
 
@@ -313,7 +322,8 @@ theta[534]
 **6.3** Plot the results
 
 <details><summary>Click Here to see the answer</summary><p>
-```{r}
+  
+```r
 plot(theta,lik,xlab="theta",ylab="log likelihood",
 main="MLE estimation for theta")
 abline(v=theta[534],lty=2)
