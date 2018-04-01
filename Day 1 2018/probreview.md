@@ -1,4 +1,4 @@
-
+ 
 
 ## Probability Review
 
@@ -15,7 +15,7 @@ The follow exercises will cover the concepts of:
 The exercises will be solved using R. If you have any questions press red light of your monitor.
 
 
-###*Introduction*
+### *Introduction*
 
 Every random variable has an associated probability distribution function. This
 function is called a probability mass function in the case of a discrete random
