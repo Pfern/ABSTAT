@@ -56,23 +56,13 @@ user the possibility to reproduce exactly the same results.
 
 
 
-> **Uniform Distribution $$X \sim U(a,b), a<b$$**
+> ** Uniform Distribution X ~ U(a,b), a<b**
 
-The Uniform distribution assigns equal probabilities to all possible ranges of equal length within which the r.v. can fall.
+The [Uniform distribution](https://en.wikipedia.org/wiki/Uniform_distribution_(continuous)) assigns equal probabilities to all possible ranges of equal length within which the r.v. can fall.
 This distributions is widely used in bioinformatics, Bayesian analysis, quantitative genetics and so on.
 
 
 One of the most important applications of the uniform distribution is in the generation of random numbers. That is, almost all random number generators generate random numbers on the (0,1) interval.
-
-* Parameters $$ a<b \in (-\infty,\infty)$$
-
-* Support  $$x \in (a,b)$$
-
-
-* Density function $$f_X(x)=\frac{1}{b-a},\quad x\in [a,b]$$
-
-* Population Moments $$E[X]=\frac{b+a}{2},\quad var[X]=\frac{(b-a)^2}{12}$$
-
 
 **Exercise 1.** Generate random numbers from an Uniform
 Distribution  with different size samples and construct
