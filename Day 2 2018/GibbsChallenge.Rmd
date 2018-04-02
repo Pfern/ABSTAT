@@ -12,7 +12,7 @@ At the end of this challenge, you should be able to:
 **Step 1.** Simulate the data - Multinomial Distribution
 
 * Learn about [Multinomial ditribution](https://en.wikipedia.org/wiki/Multinomial_distribution). For the three-dimensional case we have:
-\({\bf X}=(X_1,X_2,X_3)\frown Multinomial(n;\theta_1,\theta_2,\theta_3)\)
+\(${\bf X}=(X_1,X_2,X_3)\frown Multinomial(n;\theta_1,\theta_2,\theta_3)$\)
 
 where $X_i\in\{0,1,2,\ldots\}$\: and\: $\theta_1+\theta_2+\theta_3=1\quad (\theta_i>0)$\\
 $P[(X_1,X_2,X_3)=(x_1,x_2,x_3)\ |\ \theta_1,\theta_2,\theta_3]=\dfrac{n!}{x_1!x_2!x_3!}\ \theta_1^{\;x_1}\theta_2^{\;x_2}\theta_3^{\;x_3}$
@@ -28,7 +28,9 @@ $P[(X_1,X_2,X_3)=(x_1,x_2,x_3)\ |\ \theta_1,\theta_2,\theta_3]=\dfrac{n!}{x_1!x_
 
 <details><summary>Click Here to see the answer</summary><p>
 theta<-c(0.2,0.3,0.5)
+                      
 data<-rmultinom(1,1000,theta)
+
 data
 </p></details>
 <br/>
