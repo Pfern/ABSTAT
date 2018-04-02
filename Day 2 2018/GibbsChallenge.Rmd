@@ -11,7 +11,7 @@ At the end of this challenge, you should be able to:
 
 **Step 1.** Simulate the data - Multinomial Distribution
 
-* Learn about Multinomial ditribution (<https://en.wikipedia.org/wiki/Multinomial_distribution>). For the three-dimensional case we have:
+* Learn about [Multinomial ditribution](https://en.wikipedia.org/wiki/Multinomial_distribution). For the three-dimensional case we have:
 
 ```math
 {\bf X}=(X_1,X_2,X_3)\frown Multinomial(n;\theta_1,\theta_2,\theta_3)
@@ -23,10 +23,10 @@ $P[(X_1,X_2,X_3)=(x_1,x_2,x_3)\ |\ \theta_1,\theta_2,\theta_3]=\dfrac{n!}{x_1!x_
 * Search for the \texttt{R} function which generates multinomially distributed random number vectors and computes multinomial probabilities.
 
 <details><summary>Click Here to see the answer</summary><p>
-?rmultinom
+  ```r
+> ?rmultinom
+  ```
 </p></details>
-<br/>
-<br/>
 
 * Simulate 1 random vector, ${\bf x}=(x_{1},x_{2},x_{3})$, following a Multinomial distribution with parameters $n=1000$ and $\bteta=(\theta_1,\theta_2,\theta_3)=\linebreak=(0.2,0.3,0.5)$. Store the simulated data in an object named \texttt{data}.
 
