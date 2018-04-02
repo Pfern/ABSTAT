@@ -1,21 +1,3 @@
----
-title: "Advanced Biostatistics 2018 - Practical Exercises"
-#author: "carina"
-#date: '2018-04-02'
-output:
-  html_document:
-    keep_md: true
----
-
-x <- rmarkdown::render("file.RMD", run_pandoc = FALSE, clean = FALSE)
-knit_meta <- attr(x, "knit_meta") 
-rmarkdown::render(input = 'file.knit.md', knit_meta = knit_meta )
-
-<style type="text/css"> body, td { font-size: 18px; } code.r{ font-size: 18px; } pre { font-size: 16px } </style> 
-
-
-
-
 
 ## Simulation
 
@@ -24,6 +6,12 @@ The follow exercises will cover the concepts of:
 
 * Simulation
 * Parameters 
+* Monte Carlo simulation
+* Parametric Bootstrap estimation
+* Non-parametric Boostrap estimation
+* Boostrap Confidence Intervals
+* Bootstrap Hypothesis Tests for one sample
+* Booststrap Hypothesis Tests for two independent samples
 
 ### Introduction
 
@@ -90,7 +78,7 @@ One of the most important applications of the uniform distribution is in the gen
 Distribution  with different size samples and construct
 histograms and analyze them.
 
-
+<details><summary>Click Here to see the answer</summary><p>
 
 ```r
 # Get a vector of 4 numbers
@@ -137,10 +125,15 @@ hist(y,main="n=600",prob=T,xlab="")
 abline(h=1,col="red")
 ```
 
+</p></details>
+<br/>
+<br/>
+
 **Exercise 2** Generate one sample of size 200 from each of the discrete Binomial and Poisson distributions. Compare the distributions with suitable plots. Change the parameters in each of the models to see how they infuence the distributions.
 
 
-
+<details><summary>Click Here to see the answer</summary><p>
+  
 ```r
 bin<-rbinom(200,20,0.5) # B(20,0.5)
 pois<-rpois(200,2)      # P(2)
@@ -161,12 +154,17 @@ lines(density(bin2),col="red")
 hist(pois2, main="P(30)",col="blue",prob=T)
 lines(density(pois2),col="red")
 ```
+</p></details>
+<br/>
+<br/>
+
 
 ## Monte Carlo Simulation
 
 **Exercise 3**
 
-
+<details><summary>Click Here to see the answer</summary><p>
+  
 ```r
 set.seed(3) #  is used to set the random number seed, 
 #  if we want the results reproducible we use 
@@ -227,6 +225,10 @@ print(round(results,3))
 ```
 
 
+</p></details>
+<br/>
+<br/>
+
 ## **Bootstrap**
 
 
@@ -238,17 +240,15 @@ Both packages are worth looking at and include various applications of the
 bootstrap and further examples. In addition, many other packages, such as the _genetics_ package, contain application specific bootstrap functionality. 
 
 
-**Exercise 2** Suppose it was drawn a sample of 300 observations with sample mean x = 2 from an exp(lambda) distribution.
+**Exercise 2** Suppose it was drawn a sample of 300 observations with sample mean(x) = 2 from an exp(lambda) distribution.
 
-**2.1**Estimate lambda using 
-
-
+**2.1** Estimate boostrap lambda and bootstrap standard error of hat(lambda) using B=1000.
 
 
 **2.2** Estimate lambda using a 95%
 parametric bootstrap confidence interval for lamda.
 
-
+<details><summary>Click Here to see the answer</summary><p>
 
 ```r
 # 95% CI for exponential parameter lambda
@@ -298,7 +298,9 @@ d = quantile(lambda_star, c(.025,.975))
 cat(d) 
 ```
 
-
+</p></details>
+<br/>
+<br/>
 
 **Exercise 3** The following measurements were given for weights (Kg) of 11 children with ages between 8 and 10 years old with renal disfunction: 38.43, 38.43, 38.39, 38.83, 38.45, 38.35, 38.43, 38.31, 38.32, 38.48, 38.50.
 
@@ -308,7 +310,7 @@ Find the 95% parametric bootstrap confidence interval for the mean value (mu) as
 **Note**:Use B=1000 bootstrap samples (each sample hence consisting
 of 11 measurements).
 
-
+<details><summary>Click Here to see the answer</summary><p>
 
 ```r
 x<-c(38.43, 38.43, 38.39, 38.83, 38.45, 38.35, 38.43, 38.31, 38.32, 38.48, 38.50)
@@ -345,7 +347,9 @@ plot(density(x))
 shapiro.test(x)
 t.test(x)
 ```
-
+</p></details>
+<br/>
+<br/>
 
 **Exercise 4** To illustrate the bootstrap procedure, let's bootstrap a small random sample:
 3.12 0.00 1.57 19.67 0.22 2.20
@@ -356,6 +360,8 @@ t.test(x)
 **4.4** Calculate the bootstrap estimates of the mean and the standard error.
 
 
+<details><summary>Click Here to see the answer</summary><p>
+  
 ```r
 set.seed(1234)
 x<-c(3.12,0.00,1.57,19.67, 0.22, 2.20)
@@ -414,6 +420,9 @@ ci.boots<-boot.ci(data.boot,0.95,type="perc")
 print(ci.boots)
 ```
 
+</p></details>
+<br/>
+<br/>
 
 **Exercise 5** Condence interval for a correlation coefficient (Adapted from Applied Statistics for Bioinformatics using R, Wim P. Krijnen).
 
@@ -426,7 +435,13 @@ Consider two sets of expression values of the MCM3 gene of the Golub et al. (199
 **5.3** From the sample of size n = 38 of the bootstraped correlation coecients obtain the 0.025 and 0.975 percentiles.
 **5.4** This pair is a bootstrap 95% condence interval for the correlation coefficient parameter.
 
+<details><summary>Click Here to see the answer</summary><p>
 
+
+
+</p></details>
+<br/>
+<br/>
 
 **Exercise 6** Gdf5 gene from the Golub et al. (1999) data.
 (Adapted from Applied Statistics for Bioinformatics using R, Wim P. Krijnen).
@@ -441,7 +456,15 @@ ALL expression values equals zero.
 + a _t_ test gives a p ???? value = 0:499 and clearly H0 is not rejected.
 + How can we use bootstrap to test the present hypothesis?
 
-
+<details><summary>Click Here to see the answer</summary><p>
+  
+  
+  
+  
+  
+ </p></details>
+<br/>
+<br/>
 
 **Exercise 7** Gene CCND3 Cyclin D3
 
@@ -453,8 +476,10 @@ ALL expression values equals zero.
 + Implement a boostrap test for this problem.
 
 
+<details><summary>Click Here to see the answer</summary><p>
 
 
 
-
-
+</p></details>
+<br/>
+<br/>
