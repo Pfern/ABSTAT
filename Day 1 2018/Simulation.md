@@ -35,7 +35,7 @@ x<-rnorm(20,mean=2,sd=1)
 the method is completely deterministic. Thus, this numbers
 have a similar behaviour from the random numbers.
 
-* Random number generator is an algorithm that can generate $x_{i+1}$ from $x_i$.
+* Random number generator is an algorithm that can generate x_{i+1} from x_i.
 
 * Require a start called "seed", i.e., a number that initiates the
 deterministic/iterative process.
@@ -56,7 +56,7 @@ user the possibility to reproduce exactly the same results.
 
 
 
-> ** Uniform Distribution X ~ U(a,b), a<b**
+> **Uniform Distribution X ~ U(a,b), a<b**
 
 The [Uniform distribution](https://en.wikipedia.org/wiki/Uniform_distribution_(continuous)) assigns equal probabilities to all possible ranges of equal length within which the r.v. can fall.
 This distributions is widely used in bioinformatics, Bayesian analysis, quantitative genetics and so on.
