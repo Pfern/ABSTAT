@@ -53,7 +53,6 @@ dbinom(0,1,0.026)
 <br/>
 
 **1.2** Plot the probability mass function (pmf) of this distribution
-
 <details><summary>Click Here to see the answer</summary><p>
  
 ```r
@@ -74,10 +73,13 @@ Bernoulli trials is called Binomial random variable.
 The [binomial distribution](https://en.wikipedia.org/wiki/Binomial_distribution) describes the behavior of a count variable _X_ if the following conditions apply:
 
 
-1 The number of events _n_ is fixed.\\
-2 Each observation is independent.\\
-3 Each observation represents one of two outcomes (_success_ or _failure_).\\
-4: The probability of _success_ theta is the same for each outcome.\\
+1 The number of events _n_ is fixed.
+
+2 Each observation is independent.
+
+3 Each observation represents one of two outcomes (_success_ or _failure_).
+
+4: The probability of _success_ theta is the same for each outcome.
 
 
 
@@ -213,7 +215,9 @@ qqline(new_set)
 
 <details><summary>Click Here to see the answer</summary><p>
 
+
 ![log likelihood function](Images/solutionlike.png)
+
 
 </p></details>
 <br/>
