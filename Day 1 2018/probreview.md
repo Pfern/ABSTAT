@@ -23,8 +23,6 @@ variable or probability density function in the case of a continuous random vari
 probabilities are associated with the values of the random variable.
 
 
-
-
 For practical computations R has built-in-functions for the binomial,
 normal, t-Student, F, etc.,  where _d_ stands for density, _p_ for (cumulative) probability distribution, _q_ for quantiles, and _r_ for drawing
 random samples.
@@ -76,10 +74,10 @@ Bernoulli trials is called Binomial random variable.
 The [binomial distribution](https://en.wikipedia.org/wiki/Binomial_distribution) describes the behavior of a count variable _X_ if the following conditions apply:
 
 
-1 The number of events $$n$$ is fixed.\\
+1 The number of events _n_ is fixed.\\
 2 Each observation is independent.\\
 3 Each observation represents one of two outcomes (_success_ or _failure_).\\
-4: The probability of _success_ $$\theta$$ is the same for each outcome.\\
+4: The probability of _success_ theta is the same for each outcome.\\
 
 
 
@@ -214,22 +212,9 @@ qqline(new_set)
 **6.1** Obtain the log likelihood function.
 
 <details><summary>Click Here to see the answer</summary><p>
-$$L(theta) \propto \theta^{2n_{AA}}(2\theta(\theta))^{n_{Aa}}(1-\theta)^{2n_{aa}} $$
 
-Letting n1=nAA and n2=nAa and n3=naa and logarithms (does not matter which base):
+![log likelihood function](Images/solutionlike.png)
 
-$$ log L(\theta)=2n_1log(\theta)+n_2log(2\theta(1-\theta))+2n_3log(1-\theta)$$
-
-Eliminating the multiplicative term:
-
-$$Log(\theta)=2n_1log(\theta)+n_2log(2)+n_2log(\theta)+n_2log(1-\theta)+2n_3log(1-\theta)$$
-
-
-To analytically solve for the maximum likelihood take the first derivative of this (which we designate with a lowercase letter "l" prime):
-
-$$  I'(\theta)=2n_1/\theta+n_2/\theta-n_2/(1-\theta) -2n_3/(1-\theta)$$
-To find the value of theta that maximizes the above we could solve it
-analytically (which is not hard in this case, but with other models is often analytically impossible) by setting $l'(\theta) =0$ and solving for theta, or we can solve it using R and finding the maximum value of the likelihood function over a grid of theta values, which is very simple.
 </p></details>
 <br/>
 <br/>
