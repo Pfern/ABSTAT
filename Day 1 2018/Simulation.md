@@ -117,6 +117,9 @@ hist(y,main="n=200",prob=T,xlab="")
 abline(h=1,col="red")
 hist(z,main="n=300",prob=T,xlab="")
 abline(h=1,col="red")
+
+
+
 hist(k,main="n=400",prob=T,xlab="")
 abline(h=1,col="red")
 hist(w,main="n=500",prob=T,xlab="")
@@ -161,7 +164,19 @@ lines(density(pois2),col="red")
 
 ## Monte Carlo Simulation
 
-**Exercise 3**
+**Exercise 3** The following measurements were given for weights (Kg) of 11
+children with ages between 8 and 10 years old with renal disfunction: 38.43, 38.43, 38.39, 38.83, 38.45, 38.35, 38.43, 38.31,
+38.32, 38.48, 38.50.
+
+**3.1** Find the 95% parametric bootstrap confidence interval for the mean value (mu)
+assuming the normal distribution for the observations and
+sigma = 0.57. 
+
+**3.2**Compare with the classical analytic approach based on
+the t-distribution.
+
+**N.B**:Use B=1000 bootstrap samples (each sample hence consisting
+of 11 measurements).
 
 <details><summary>Click Here to see the answer</summary><p>
   
