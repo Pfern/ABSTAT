@@ -1,13 +1,3 @@
-    <script type="text/javascript" 
-        src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-    </script>
-    <script type="text/javascript">MathJax.Hub.Config({tex2jax: {processEscapes: true, 
-        processEnvironments: false, inlineMath: [ ['$','$'] ], 
-        displayMath: [ ['$$','$$'] ] }, 
-        asciimath2jax: {delimiters: [ ['$','$'] ] }, 
-        "HTML-CSS": {minScaleAdjust: 125 } });
-    </script>
-
 ## Gibbs Sampling
 
 At the end of this challenge, you should be able to:
@@ -29,7 +19,7 @@ $P[(X_1,X_2,X_3)=(x_1,x_2,x_3)\ |\ \theta_1,\theta_2,\theta_3]=\dfrac{n!}{x_1!x_
 
 * Search for the \texttt{R} function which generates multinomially distributed random number vectors and computes multinomial probabilities.
 
-```{r , results='asis', echo=FALSE}
+```{r , results='asis', echo=TRUE}
 ?rmultinom
 ```
 
