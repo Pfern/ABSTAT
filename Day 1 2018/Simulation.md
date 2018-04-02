@@ -505,14 +505,16 @@ CIr(r=cor(x,y), n = 38, level = .95)
 **Exercise 6** Gdf5 gene from the Golub et al. (1999) data.
 (Adapted from Applied Statistics for Bioinformatics using R, Wim P. Krijnen).
 
-+ The corresponding expression values are contained in row
-2058.
++ The corresponding expression values are contained in row 2058.
+
 + A quick search through the NCBI site makes it likely that this
 gene is not directly related to leukemia.
+
 + Hence, we may hypothesize that the population mean of the
 ALL expression values equals zero.
+
 + Accordingly, we test H0 : mu = 0 vs. H1 : mu > 0.
-+ a _t_ test gives a p ???? value = 0:499 and clearly H0 is not rejected.
+
 + How can we use bootstrap to test the present hypothesis?
 
 <details><summary>Click Here to see the answer</summary><p>
