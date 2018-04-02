@@ -19,7 +19,7 @@ $P[(X_1,X_2,X_3)=(x_1,x_2,x_3)\ |\ \theta_1,\theta_2,\theta_3]=\dfrac{n!}{x_1!x_
 
 * Search for the \texttt{R} function which generates multinomially distributed random number vectors and computes multinomial probabilities.
 
-```{r , results='asis', echo=TRUE}
+```{r}
 ?rmultinom
 ```
 
