@@ -387,8 +387,7 @@ biasB<-meanB-mean(x)   #bias
 
 hist(mean.1000)
 ```
-
-```r
+f```r
 qqnorm(mean.1000)
 ```
 
@@ -438,7 +437,7 @@ Consider two sets of expression values of the MCM3 gene of the Golub et al. (199
 
 **5.2** Repeat the procedure [5.1] B=1000 times.
 
-**5.3** From the sample of size n = 38 of the bootstraped correlation coecients obtain the 0.025 and 0.975 percentiles.
+**5.3** From the sample of size n = 38 of the bootstraped correlation coeficients obtain the 0.025 and 0.975 percentiles.
 
 **5.4** This pair is a bootstrap 95% confidence interval for the correlation coefficient parameter.
 
@@ -504,13 +503,53 @@ ALL expression values equals zero.
 <details><summary>Click Here to see the answer</summary><p>
   
   ```r
+library(multtest)
+data(golub)
+?golub
+#golub.cl is a numeric vector indicating the tumor class,
+#27 acute lymphoblastic leukemia (ALL) cases (code 0) 
+#and 11 acute myeloid leukemia (AML) cases (code 1). 
+
+gol.fac <- factor(golub.cl,levels=0:1, labels= c("ALL","AML"))
+
+x <- golub[2058,golub.cl==0] # getting ALL expression levels
 
 
+#non-parametric approach:bootstrap
+n<-length(x)
+mu0<-0
 
-```
+t.obs<-(mean(x)-mu0)*sqrt(n)/sd(x)
+t.obs
+
+z<-x-mean(x)+mu0
+z
+hist(z)
+
+
+m <- 10000
+
+t.star <- 0
+for(j in 1:m)
+{
+  z.star <- sample(z,n,replace=T)
+  t.star[j] <- (mean(z.star)-mu0)*sqrt(n)/sd(z.star)
+}
+
+p<-length(t.star[t.star>t.obs])/m  # one-sided
+p
+
+
+#parametric approach: t-test
+
+hist(x,probability=T)
+lines(density(x))
+shapiro.test(x)  #normality test
+t.test(x,alternative = "greater",mu = 0)
+
+  ```
   
-  
-  
+   
  </p></details>
 <br/>
 <br/>
@@ -528,8 +567,49 @@ ALL expression values equals zero.
 <details><summary>Click Here to see the answer</summary><p>
 
 ```r
+golub.cl
+x1<-golub[1042,golub.cl==0]
+x2<-golub[1042,golub.cl==1]
 
 
+plot(density(x1),xlim=c(-2,3))  #empirical densities
+lines(density(x2),col=2)
+legend(-1,0.6,legend=c("ALL","AML"),col=1:2,lty=1)
+
+n1<-length(x1)
+n2<-length(x2)
+xb1<-mean(x1)
+xb2<-mean(x2)
+vb1<-var(x1)
+vb2<-var(x2)
+t.obs<-(xb1-xb2)/sqrt(vb1/n1+vb2/n2)
+t.obs
+xb<-mean(c(x1,x2)) #combined mean of the two samples
+z1<-x1-xb1+xb
+z2<-x2-xb2+xb
+mean(z1)
+mean(z2)
+xb
+t.star<-0
+B<-1000
+for(i in 1:B){
+  z1.star<-sample(z1,n1,replace=T)
+  z2.star<-sample(z2,n2,replace=T)
+  zb1<-mean(z1.star)
+  zb2<-mean(z2.star)
+  vz1<-var(z1.star)
+  vz2<-var(z2.star)
+  t.star[i]<-(zb1-zb2)/sqrt(vz1/n1+vz2/n2)
+}
+pvalue<-(sum(abs(t.star)>abs(t.obs))/B)
+pvalue
+
+#parametric approach
+shapiro.test(x1)
+shapiro.test(x2)
+var.test(x1,x2)
+test<-t.test(golub[1042,] ~ golub.cl, var.equal=T,alternative="two.sided")
+test
 
 ```
 
