@@ -313,6 +313,7 @@ of 11 measurements).
 <details><summary>Click Here to see the answer</summary><p>
 
 ```r
+
 x<-c(38.43, 38.43, 38.39, 38.83, 38.45, 38.35, 38.43, 38.31, 38.32, 38.48, 38.50)
 
 xbar<-mean(x)
@@ -355,8 +356,11 @@ t.test(x)
 3.12 0.00 1.57 19.67 0.22 2.20
 
 **4.1** Create 1000 replicates of size 6 with replacement.
+
 **4.2** Calculate the sample mean for each of the replicates.
+
 **4.3** Make a histogram and a normal quantile plot of the 1000 means. Make the density plot of the 1000 replicates. This is the bootstrap distribution.
+
 **4.4** Calculate the bootstrap estimates of the mean and the standard error.
 
 
@@ -424,20 +428,61 @@ print(ci.boots)
 <br/>
 <br/>
 
-**Exercise 5** Condence interval for a correlation coefficient (Adapted from Applied Statistics for Bioinformatics using R, Wim P. Krijnen).
+**Exercise 5** Confidence interval for a correlation coefficient (Adapted from Applied Statistics for Bioinformatics using R, Wim P. Krijnen).
 
 Consider two sets of expression values of the MCM3 gene of the Golub et al. (1999) data. This data set is a gene expression data (3051 genes and 38 tumor mRNA samples) from the leukemia microarray study. This gene encodes for highly conserved mini-chromosome maintenance proteins (MCM) which are involved in the initiation of eukaryotic genome replication.
 
 
 
-**5.1** Obtain a bootstrap sample from (x; y), and compute the correlation coecient for the bootstrap sample.
-**5.2** Repeat the procedure [1] B=1000 times.
+**5.1** Obtain a bootstrap sample from (x; y), and compute the correlation coeficient for the bootstrap sample.
+
+**5.2** Repeat the procedure [5.1] B=1000 times.
+
 **5.3** From the sample of size n = 38 of the bootstraped correlation coecients obtain the 0.025 and 0.975 percentiles.
-**5.4** This pair is a bootstrap 95% condence interval for the correlation coefficient parameter.
+
+**5.4** This pair is a bootstrap 95% confidence interval for the correlation coefficient parameter.
 
 <details><summary>Click Here to see the answer</summary><p>
 
+```r
+source("https://bioconductor.org/biocLite.R")
+biocLite("multtest")
 
+library(multtest);
+data(golub)
+x <- golub[2289,];
+y <- golub[2430,]
+cor(x,y)
+
+xy<-matrix(c(x,y),ncol=2) #matrix containig the data
+
+B <- 1000 #number of bootstrap samples
+cor.star <- 0 #matrix containing correlation coefficients
+for (i in 1:B){
+  z<-sample(1:nrow(xy),replace=TRUE)
+  cor.star[i] <- cor(xy[z,1],xy[z,2])
+}
+
+mean(cor.star) #bootstrap estimate of the correlation coefficient
+
+plot(density(cor.star)) #bootstrap sampling distribution 
+
+quantile(cor.star,c(0.025,0.975))#bootstrap 95% confidence interval
+
+#parametric approach
+
+install.packages("psychometric") # install package with function
+library(psychometric) # load package with function
+
+# The following command calculates lower and upper
+# 95% confidence intervals (level)
+# sample size (n) is 
+
+CIr(r=cor(x,y), n = 38, level = .95)
+
+
+
+```
 
 </p></details>
 <br/>
@@ -458,7 +503,11 @@ ALL expression values equals zero.
 
 <details><summary>Click Here to see the answer</summary><p>
   
-  
+  ```r
+
+
+
+```
   
   
   
@@ -478,7 +527,11 @@ ALL expression values equals zero.
 
 <details><summary>Click Here to see the answer</summary><p>
 
+```r
 
+
+
+```
 
 </p></details>
 <br/>
