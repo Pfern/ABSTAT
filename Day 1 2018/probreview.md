@@ -19,8 +19,7 @@ The exercises will be solved using R. If you have any questions press red light 
 
 Every random variable has an associated probability distribution function. This
 function is called a probability mass function in the case of a discrete random
-variable or probability density function in the case of a continuous random
-variable. The distribution function is used to model how the outcome
+variable or probability density function in the case of a continuous random variable. The distribution function is used to model how the outcome
 probabilities are associated with the values of the random variable.
 
 
@@ -69,12 +68,12 @@ dbinom(0,1,0.026)
 
 
 
-> **Binomial Distribution  $$X\sim Bin(n,\theta)$$**
+> **Binomial Distribution  X ~ Bin(n,theta)$$**
 
-The random variable which counts the number of successes in $$n$$ independent and identical
+The random variable which counts the number of successes in _n_ independent and identical
 Bernoulli trials is called Binomial random variable.
 
-The binomial distribution describes the behavior of a count variable $X$ if the following conditions apply:
+The [binomial distribution](https://en.wikipedia.org/wiki/Binomial_distribution) describes the behavior of a count variable _X_ if the following conditions apply:
 
 
 1 The number of events $$n$$ is fixed.\\
@@ -82,23 +81,6 @@ The binomial distribution describes the behavior of a count variable $X$ if the 
 3 Each observation represents one of two outcomes (_success_ or _failure_).\\
 4: The probability of _success_ $$\theta$$ is the same for each outcome.\\
 
-
-* Parameter $$\theta\in[0,1]$$
-
-* Support $$\mathcal{X}=\{0,1,...,n\}$$
-
-
-* Probability mass function 
-$$P[X=x|\theta]=p(x|\theta)=\left\{
-  \begin{array}{ll}
-   {n\choose x}\theta^x(1-\theta)^{n-x}, & \hbox{for $x\in S$;} \\
-    0, & \hbox{otherwise.}
-  \end{array}
-\right.
-$$
-
-
-* Population Moments $$\mu=E[X]=n\theta,\quad \sigma^2=var[X]=n\theta(1-\theta).$$
 
 
 **Exercise 2.** Suppose that for certain microRNA of size 20 the probability of a purine is binomially distributed with probability 0.7.
@@ -141,26 +123,18 @@ sqrt(20*0.7*0.3)
 
 <details><summary>Click Here to see the answer</summary><p>
 
-```r
-# P(10<=X<=20)
-```
+P(10<=X<=20)
+
 </p></details>
 <br/>
 <br/>
 
-> **Normal Distribution $$X \sim N(\mu,\sigma)$$**
+> **Normal Distribution X ~ N(mu,sigma)**
 
+where mu=E(X) and sigma=sqrt(var(X))
 
+[Normal distribution](https://pt.wikipedia.org/wiki/Distribuição_normal) is a continuous distribution.
 
-* Parameters $$\mu\in \Re, \sigma>0$$, where $$\mu$$ is a location parameter and $$\sigma$$ is a scale parameter.
-
-* Support $$x \in \Re$$
-
-* Density distribution $$f_X(x)=\frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{1}{2\sigma^2}(x-\mu)^2},\quad -\infty<x<+\infty.$$
-
-
-* Population Moments
-$$E[X]=\mu,\quad var[X]=\sigma^2.$$
 
 
 **Exercise 4.** The distribution of the expression values of the ALL patients on the Zyxin gene are distributed according to N(1.6; 0.42).
@@ -188,21 +162,17 @@ qnorm(0.15,1.6,0.42)
 <br/>
 <br/>
 
-All normal distributions can be converted into the standard normal curve by subtracting the mean and dividing by the standard deviation: 
+All normal distributions can be converted into the standard normal curve by subtracting the mean and dividing by the standard deviation: Z=(X-mu)/sigma ~ N(0,1)
 
- 
-$$ Z=\frac{X-\mu}{\sigma}$$
-
- 
-then $Z$ has a Normal(0, 1) distribution. Such $Z$ is called a __standard normal random variable__.  The scale of $Z$ has no units and it is called the standardized scale. 
+Such Z is called a __standard normal random variable__.  The scale of Z has no units and it is called the standardized scale. 
 
 
 **Exercise 5.** Given a sample 0.12, 0.24, 0.01, 0.16, 0.18, 0.55,0.89, 1.00, 1.45 and 2.5 corresponding to intensity levels of one gene from 5 DNA chips.
 
 Analyze the distribution considering normality using density function
-in R and construct a normal QQ-plot to check for normality. Apply a
+in R and construct a normal [QQ-plot](https://en.wikipedia.org/wiki/Q–Q_plot) to check for normality. Apply a
 log2 transformation and repeat the analysis. Use the qqnorm() and
-qqline() functions to get the normal QQ plot. Compare your results.
+qqline() functions to get the normal QQ-plot. Compare your results.
 
 <details><summary>Click Here to see the answer</summary><p>
  
@@ -210,8 +180,15 @@ qqline() functions to get the normal QQ plot. Compare your results.
 set<-c(0.12, 0.24, 0.01, 0.16, 0.18, 0.55,0.89, 1.00, 1.45,
 2.5)
 
+plot(density(set))
+
+new_set<-log2(set)
+
+plot(density(new_set))
 qqnorm(set)
 qqline(set)
+qqnorm(new_set)
+qqline(new_set)
 ```
 </p></details>
 <br/>
@@ -237,7 +214,7 @@ qqline(set)
 **6.1** Obtain the log likelihood function.
 
 <details><summary>Click Here to see the answer</summary><p>
-$$L(\theta) \propto \theta^{2n_{AA}}(2\theta(\theta))^{n_{Aa}}(1-\theta)^{2n_{aa}} $$
+$$L(theta) \propto \theta^{2n_{AA}}(2\theta(\theta))^{n_{Aa}}(1-\theta)^{2n_{aa}} $$
 
 Letting n1=nAA and n2=nAa and n3=naa and logarithms (does not matter which base):
 
