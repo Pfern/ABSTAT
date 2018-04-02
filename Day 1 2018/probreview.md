@@ -33,29 +33,12 @@ random samples.
 
 In <https://stat.ethz.ch/R-manual/R-devel/library/stats/html/Distributions.html> you can find the R functions for several distributions.
 
-> **Bernoulli Distribution $$X \sim Ber(1,\theta)$$**
+> **Bernoulli Distribution X ~ Ber(1,theta)**
 
 We call _Bernoulli trial_ a single trial with
-two possible outcomes: _success_ and _failure_, where $$\theta$$ is the probability of success.
+two possible outcomes: _success_ and _failure_, where theta is the probability of success.
 
-* Parameter $$\theta\in[0,1]$$.
-
-
-* Support $$\mathcal{X}=\{0,1\}$$.
-
-* Probability mass function
-
-$$P[X=x|\theta]=p(x|\theta)=\left\{
-  \begin{array}{ll}
-    \theta^x(1-\theta)^{1-x}, & \hbox{for $x=0,1$;} \\
-    0, & \hbox{otherwise.}
-  \end{array}
-\right.
-$$
-
-* Population Moments
-$$\mu=E[X]=\theta; \quad \sigma^2=var[X]=\theta(1-\theta).$$
-
+[Bernoulli distribution]<https://en.wikipedia.org/wiki/Bernoulli_distribution>
 
 
 **Exercise 1**   Let's say it is known that 2.6% of the population has a certain genetic disease. Then when we randomly
