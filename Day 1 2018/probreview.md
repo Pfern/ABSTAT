@@ -183,7 +183,6 @@ set<-c(0.12, 0.24, 0.01, 0.16, 0.18, 0.55,0.89, 1.00, 1.45,
 plot(density(set))
 
 new_set<-log2(set)
-
 plot(density(new_set))
 qqnorm(set)
 qqline(set)
@@ -201,14 +200,14 @@ qqline(new_set)
 >Likelihood function is the function of the parameters given the data. The principle of maximum likelihood estimation is that somewhere on the range of parameter values, the likelihood function hits a maximum value. The parameter values for which the likelihood function obtains its maximum are called the maximum likelihood estimates for the parameters.
 
 
-**Exercise 6**  A common use of maximum likelihood estimation in genetics is to estimate parameters for the [Hardy Weinberg Equilibrium](https://www.nature.com/scitable/definition/hardy-weinberg-equation-299) model for the distribution of genotypes in a population at equilibrium. In a given population gene pool, for a two allele gene locus, alleles A and a are at frequencies p and q, respectively. According to Hardy Weinberg equilibrium the genetic frequencies of genotypes are modeled by the simple equation: $p^2+2pq+q^2=1$.
+**Exercise 6**  A common use of maximum likelihood estimation in genetics is to estimate parameters for the [Hardy Weinberg Equilibrium](https://www.nature.com/scitable/definition/hardy-weinberg-equation-299) model for the distribution of genotypes in a population at equilibrium. In a given population gene pool, for a two allele gene locus, alleles A and a are at frequencies p and q, respectively. According to Hardy Weinberg equilibrium the genetic frequencies of genotypes are modeled by the simple equation: p^2+2pq+q^2=1.
 
 
   AA  |  Aa  |  aa
 ------|------|------
   p^2 |  2pq |  q^2
   
-  The likelihood for this follows a [multinomial probability distribution](https://en.wikipedia.org/wiki/Multinomial_distribution) that we can model, where parameter theta,$\theta=p$ (and therefore $1-\theta=q$, theta between 0 and 1).
+  The likelihood for this follows a [multinomial probability distribution](https://en.wikipedia.org/wiki/Multinomial_distribution) that we can model, where parameter theta, theta=p (and therefore 1-theta=q, theta between 0 and 1).
 
 
 **6.1** Obtain the log likelihood function.
