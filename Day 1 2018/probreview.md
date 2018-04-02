@@ -38,7 +38,7 @@ In <https://stat.ethz.ch/R-manual/R-devel/library/stats/html/Distributions.html>
 We call _Bernoulli trial_ a single trial with
 two possible outcomes: _success_ and _failure_, where theta is the probability of success.
 
-[Bernoulli distribution]<https://en.wikipedia.org/wiki/Bernoulli_distribution>
+[Bernoulli distribution](https://en.wikipedia.org/wiki/Bernoulli_distribution)
 
 
 **Exercise 1**   Let's say it is known that 2.6% of the population has a certain genetic disease. Then when we randomly
