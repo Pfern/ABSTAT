@@ -17,11 +17,11 @@ At the end of this challenge, you should be able to:
 
 ![eq1](http://latex.codecogs.com/gif.latex?%7B%5Cbf%20X%7D%3D%28X_1%2CX_2%2CX_3%29%5Cfrown%20Multinomial%28n%3B%5Ctheta_1%2C%5Ctheta_2%2C%5Ctheta_3%29)
 
-where !(http://latex.codecogs.com/gif.latex?X_i%5Cin%5C%7B0%2C1%2C2%2C%5Cldots%5C%7D) and !(http://latex.codecogs.com/gif.latex?%24%5Ctheta_1&plus;%5Ctheta_2&plus;%5Ctheta_3%3D1%5Cquad%20%28%5Ctheta_i%3E0%29%24)
+where ![](http://latex.codecogs.com/gif.latex?X_i%5Cin%5C%7B0%2C1%2C2%2C%5Cldots%5C%7D) and ![](http://latex.codecogs.com/gif.latex?%24%5Ctheta_1&plus;%5Ctheta_2&plus;%5Ctheta_3%3D1%5Cquad%20%28%5Ctheta_i%3E0%29%24)
 
-!(http://latex.codecogs.com/gif.latex?%24%24P%5B%28X_1%2CX_2%2CX_3%29%3D%28x_1%2Cx_2%2Cx_3%29%5C%20%7C%5C%20%5Ctheta_1%2C%5Ctheta_2%2C%5Ctheta_3%5D%3D%5Cdfrac%7Bn%21%7D%7Bx_1%21x_2%21x_3%21%7D%5C%20%5Ctheta_1%5E%7B%5C%3Bx_1%7D%5Ctheta_2%5E%7B%5C%3Bx_2%7D%5Ctheta_3%5E%7B%5C%3Bx_3%7D%24%24)
+![](http://latex.codecogs.com/gif.latex?%24%24P%5B%28X_1%2CX_2%2CX_3%29%3D%28x_1%2Cx_2%2Cx_3%29%5C%20%7C%5C%20%5Ctheta_1%2C%5Ctheta_2%2C%5Ctheta_3%5D%3D%5Cdfrac%7Bn%21%7D%7Bx_1%21x_2%21x_3%21%7D%5C%20%5Ctheta_1%5E%7B%5C%3Bx_1%7D%5Ctheta_2%5E%7B%5C%3Bx_2%7D%5Ctheta_3%5E%7B%5C%3Bx_3%7D%24%24)
 
-* Search for the !(http://latex.codecogs.com/gif.latex?%24%5Ctexttt%7BR%7D%24) function which generates multinomially distributed random number vectors and computes multinomial probabilities.
+* Search for the ![](http://latex.codecogs.com/gif.latex?%24%5Ctexttt%7BR%7D%24) function which generates multinomially distributed random number vectors and computes multinomial probabilities.
 
 <details><summary>Click Here to see the answer</summary><p>
 
@@ -34,19 +34,26 @@ where !(http://latex.codecogs.com/gif.latex?X_i%5Cin%5C%7B0%2C1%2C2%2C%5Cldots%5
 
 * Simulate 1 random vector, ${\bf x}=(x_{1},x_{2},x_{3})$, following a Multinomial distribution with parameters $n=1000$ and $\bteta=(\theta_1,\theta_2,\theta_3)=(0.2,0.3,0.5)$. Store the simulated data in an object named $\texttt{data}$.
 
-
+<details><summary>Click Here to see the answer</summary><p>
 
 ```r
 theta<-c(0.2,0.3,0.5)
 data<-rmultinom(1,1000,theta)
 data
 ```
+</p></details>
+<br/>
+<br/>
 
 * Calculate the probability of observing the vector (220,350,430), that is, $P[(X_1,X_2,X_3)=(220,350,430)\ |\ \bteta]$.
 
+<details><summary>Click Here to see the answer</summary><p>
 
 ```r
 dmultinom(c(220,350,430),1000,theta)
+</p></details>
+<br/>
+<br/>
 ```
 
 **Step 2.** Dirichlet Distribution - Prior / Posterior Distribution
@@ -61,39 +68,55 @@ $$p_{\bteta}(\bteta)=\dfrac{\Gamma(a)}{\Gamma(a_1)\Gamma(a_2)\Gamma(a_3)}\ \thet
 
 * Search for the $\texttt{R}$ function which generates Dirichlet distributed random number vectors and computes Dirichlet probabilities.
 
+<details><summary>Click Here to see the answer</summary><p>
 
 ```r
 ?rdirichlet
 library(gtools)
 ```
+</p></details>
+<br/>
+<br/>
 
 * Simulate a random vector $\bteta^{(0)}=(\theta_1^{(0)},\theta_2^{(0)},\theta_3^{(0)})$, from a Dirichlet distribution with hyperparameters ${\bf a}^{(0)}=(a_1^{(0)},a_2^{(0)},a_3^{(0)})=(1,1,1)$. Store the simulated vector in \texttt{theta.0} and vector ${\bf a}^{(0)}$ in $\texttt{a.0}$.
 
+<details><summary>Click Here to see the answer</summary><p>
 
 ```r
 a.0<-c(1,1,1)
 theta.0<-rdirichlet(1,a.0)
 theta.0
 ```
+</p></details>
+<br/>
+<br/>
 
 * Calculate the probability density for the vector (0.15,0.25,0.6), that is, $p_{\bteta}[(0.15,0.25,0.6)]$.
 
+<details><summary>Click Here to see the answer</summary><p>
 
 ```r
 ddirichlet(c(0.15,0.25,0.6),a.0) # Note: prob density function > 0
 ```
+</p></details>
+<br/>
+<br/>
 
 * The Dirichlet distribution is the conjugate prior of the Multinomial distribution, by achiving the following result:   $p_{\bteta|\bf x}(\bteta)\propto \theta_1^{\;{\color{blue}a_1+x_1}-1}\theta_2^{\;{\color{blue}a_2+x_2}-1}\theta_3^{\;{\color{blue}a_3+x_3}-1}$.
 
   Simulate $\bteta^{(1)}$ knowing **x** and $\bteta^{(0)}$,
 directly from de posterior distribution (Dirichlet).
 
+<details><summary>Click Here to see the answer</summary><p>
 
 ```r
 data<-t(data) # need a row vector
 updated.theta<-rdirichlet(1,a.0+data) # Note: prob density function > 0
 updated.theta
 ```
+</p></details>
+<br/>
+<br/>
 
 **Step 3.** The Gibbs Sampler.
 
@@ -101,6 +124,7 @@ updated.theta
 
 * Store the updated parameters for each iteration in a  matrix of order $\texttt{nr.iter}\times 3$.
 
+<details><summary>Click Here to see the answer</summary><p>
 
 ```r
 nr.iter<-5000
@@ -115,11 +139,15 @@ for(i in 1:nr.iter)
 }
 tail(theta.all.iter)  # last 6 rows
 ```
+</p></details>
+<br/>
+<br/>
 
 **Step 4.** Trace / Parameters Estimation
 
 * Represent graphically the trace for each parameter along the 5000 iterations.
 
+<details><summary>Click Here to see the answer</summary><p>
 
 ```r
 par(mfrow=c(1,3))
@@ -128,13 +156,20 @@ plot(1:nr.iter,theta.all.iter[,1],ylim=c(0,0.5),main=expression(paste("Trace for
 plot(1:nr.iter,theta.all.iter[,2],ylim=c(0,0.5),main=expression(paste("Trace for ",theta[2])),ylab=expression(theta),xlab="iteration")
 plot(1:nr.iter,theta.all.iter[,3],ylim=c(0,0.5),main=expression(paste("Trace for ",theta[3])),ylab=expression(theta),xlab="iteration")
 ```
+</p></details>
+<br/>
+<br/>
 
 * Evaluate the need of setting a period of burn-in.
 
 * Find estimates of the parameters according to the decisions made in (b).
 
+<details><summary>Click Here to see the answer</summary><p>
 
 ```r
 theta.final<-apply(theta.all.iter[1001:5000,],2,mean) # 2: 'by column'
 round(theta.final,2)
 ```
+</p></details>
+<br/>
+<br/>
