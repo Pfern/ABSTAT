@@ -29,7 +29,7 @@ where ![](http://latex.codecogs.com/gif.latex?X_i%5Cin%5C%7B0%2C1%2C2%2C%5Cldots
 </p></details>
 <br/>
 
-* Simulate 1 random vector, ![](http://latex.codecogs.com/gif.latex?%24%7B%5Cbf%20x%7D%3D%28x_%7B1%7D%2Cx_%7B2%7D%2Cx_%7B3%7D%29%24), following a Multinomial distribution with parameters n=1000 and ![](http://latex.codecogs.com/gif.latex?%7B%5Cboldsymbol%5Ctheta%7D%3D%28%5Ctheta_1%2C%5Ctheta_2%2C%5Ctheta_3%29%3D%280.2%2C0.3%2C0.5%29). Store the simulated data in an object named $\texttt{data}$.
+* Simulate 1 random vector, ![](http://latex.codecogs.com/gif.latex?%24%7B%5Cbf%20x%7D%3D%28x_%7B1%7D%2Cx_%7B2%7D%2Cx_%7B3%7D%29%24), following a Multinomial distribution with parameters n=1000 and ![](http://latex.codecogs.com/gif.latex?%7B%5Cboldsymbol%5Ctheta%7D%3D%28%5Ctheta_1%2C%5Ctheta_2%2C%5Ctheta_3%29%3D%280.2%2C0.3%2C0.5%29). Store the simulated data in an object named ![](http://latex.codecogs.com/gif.latex?%24%5Ctexttt%7Bdata%7D%24).
 
 <details><summary>Click Here to see the answer</summary><p>
 
@@ -41,16 +41,15 @@ data
 </p></details>
 <br/>
 
-* Calculate the probability of observing the vector (220,350,430), that is, ![](http://latex.codecogs.com/gif.latex?%24P%5B%28X_1%2CX_2%2CX_3%29%3D%28220%2C350%2C430%29%5C%20%7C%5C%20%5Cbteta%5D%24).
+* Calculate the probability of observing the vector (220,350,430), that is, ![](http://latex.codecogs.com/gif.latex?P%5B%28X_1%2CX_2%2CX_3%29%3D%28220%2C350%2C430%29%5C%20%7C%5C%20%5Cboldsymbol%7B%5Ctheta%7D%5D).
 
 <details><summary>Click Here to see the answer</summary><p>
 
 ```r
 dmultinom(c(220,350,430),1000,theta)
+```
 </p></details>
 <br/>
-<br/>
-```
 
 **Step 2.** Dirichlet Distribution - Prior / Posterior Distribution
 
