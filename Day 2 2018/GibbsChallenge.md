@@ -154,7 +154,7 @@ plot(1:nr.iter,theta.all.iter[,3],ylim=c(0,0.5),main=expression(paste("Trace for
 
 * Evaluate the need of setting a period of burn-in.
 
-* Find estimates of the parameters according to the decisions made in (b).
+* Find estimates of the parameters according to the decisions made in previous bullet.
 
 <details><summary>Click Here to see the answer</summary><p>
 
