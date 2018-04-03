@@ -16,7 +16,7 @@ The main locus for the blood type of mice is called Ag-B (B). Several alleles ar
   | aaBb      |    13     | ![](http://latex.codecogs.com/gif.latex?%24%5Ctheta%281-%5Ctheta%29/2%24)             |
   | aabb      |    11     | ![](http://latex.codecogs.com/gif.latex?%24%281-%5Ctheta%29%5E2/4%24)                 |
 
-Estimate the recombination fraction,![](http://latex.codecogs.com/gif.latex?%24%5Ctheta%24), from these data by the EM algorithm.
+Estimate the recombination fraction, ![](http://latex.codecogs.com/gif.latex?%24%5Ctheta%24), from these data by the EM algorithm.
 
 **Step 1**
 
@@ -91,7 +91,7 @@ r <- 0.3
 
 * Create function ![](http://latex.codecogs.com/gif.latex?%5Ctexttt%7Bexpected%7D) in order to calculate the expected value for ![](http://latex.codecogs.com/gif.latex?%24N_2%5E*%24),
 
-![](http://latex.codecogs.com/gif.latex?%5Ctexttt%7Bexpected%7D): random variable representing the number of individuals from 2 recombinant gametes, among ![](http://latex.codecogs.com/gif.latex?%24n_%7BAaBb%7D%24) individuals.
+![](http://latex.codecogs.com/gif.latex?%24N_2%5E*%24): random variable representing the number of individuals from 2 recombinant gametes, among ![](http://latex.codecogs.com/gif.latex?%24n_%7BAaBb%7D%24) individuals.
 
 ![](http://latex.codecogs.com/gif.latex?%24N_2%5E*%5Cfrown%20Binomial%28n_%7BAaBb%7D%2Cp%29%24) with ![](http://latex.codecogs.com/gif.latex?p%3D%5Cfrac%7B%5Ctheta%5E2%7D%7B%5Ctheta%5E2&plus;%281-%5Ctheta%29%5E2%7D)
 
@@ -151,7 +151,7 @@ while(er>=error)
  er<-abs(r-r.updated)
  i<-i+1
  r<-r.updated
- cat(i,r,"$\backslash$n") 
+ cat(i,r,"\n") 
 } 
 ```
 </p></details>
