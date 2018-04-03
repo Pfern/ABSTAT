@@ -6,8 +6,8 @@ At the end of this challenge, you should be able to:
 
 (2) how to run it for the Multinomial-Dirichlet distributions with known **x**,
 
-(3) implement the main functions in $\texttt{R}$.
-
+(3) implement the main functions in ![](http://latex.codecogs.com/gif.latex?%24%5Ctexttt%7BR%7D%24).
+<br/>
 
 **Step 1.** Simulate the data - Multinomial Distribution
 
@@ -50,18 +50,19 @@ dmultinom(c(220,350,430),1000,theta)
 ```
 </p></details>
 <br/>
+<br/>
 
 **Step 2.** Dirichlet Distribution - Prior / Posterior Distribution
 
 * Learn about [Dirichlet ditribution](https://en.wikipedia.org/wiki/Dirichlet_distribution). For the three-dimensional case we have:
 
-$$\bteta=(\theta_1,\theta_2,\theta_3)\frown Dirichlet(a_1,a_2,a_3)$$
+![](http://latex.codecogs.com/gif.latex?%5Cboldsymbol%5Ctheta%3D%28%5Ctheta_1%2C%5Ctheta_2%2C%5Ctheta_3%29%5Cfrown%20Dirichlet%28a_1%2Ca_2%2Ca_3%29)
 
-where $a_1,a_1,a_3>0$ and $a=a_1+a_2+a_3$
+where ![](http://latex.codecogs.com/gif.latex?a_1%2Ca_1%2Ca_3%3E0) and ![](http://latex.codecogs.com/gif.latex?a%3Da_1&plus;a_2&plus;a_3),
 
-$$p_{\bteta}(\bteta)=\dfrac{\Gamma(a)}{\Gamma(a_1)\Gamma(a_2)\Gamma(a_3)}\ \theta_1^{\;{\color{blue}a_1}-1}\theta_2^{\;{\color{blue}a_2}-1}\theta_3^{\;{\color{blue}a_3}-1}$$
+![](http://latex.codecogs.com/gif.latex?p_%7B%5Cboldsymbol%5Ctheta%7D%28%5Cboldsymbol%5Ctheta%29%3D%5Cdfrac%7B%5CGamma%28a%29%7D%7B%5CGamma%28a_1%29%5CGamma%28a_2%29%5CGamma%28a_3%29%7D%5C%20%5Ctheta_1%5E%7B%5C%3B%7B%5Ccolor%7Bblue%7Da_1%7D-1%7D%5Ctheta_2%5E%7B%5C%3B%7B%5Ccolor%7Bblue%7Da_2%7D-1%7D%5Ctheta_3%5E%7B%5C%3B%7B%5Ccolor%7Bblue%7Da_3%7D-1%7D)
 
-* Search for the $\texttt{R}$ function which generates Dirichlet distributed random number vectors and computes Dirichlet probabilities.
+* Search for the ![](http://latex.codecogs.com/gif.latex?%24%5Ctexttt%7BR%7D%24) function which generates Dirichlet distributed random number vectors and computes Dirichlet probabilities.
 
 <details><summary>Click Here to see the answer</summary><p>
 
@@ -71,9 +72,9 @@ library(gtools)
 ```
 </p></details>
 <br/>
-<br/>
 
-* Simulate a random vector $\bteta^{(0)}=(\theta_1^{(0)},\theta_2^{(0)},\theta_3^{(0)})$, from a Dirichlet distribution with hyperparameters ${\bf a}^{(0)}=(a_1^{(0)},a_2^{(0)},a_3^{(0)})=(1,1,1)$. Store the simulated vector in \texttt{theta.0} and vector ${\bf a}^{(0)}$ in $\texttt{a.0}$.
+
+* Simulate a random vector ![](http://latex.codecogs.com/gif.latex?%5Cboldsymbol%5Ctheta%5E%7B%280%29%7D%3D%28%5Ctheta_1%5E%7B%280%29%7D%2C%5Ctheta_2%5E%7B%280%29%7D%2C%5Ctheta_3%5E%7B%280%29%7D%29), from a Dirichlet distribution with hyperparameters ![](http://latex.codecogs.com/gif.latex?%7B%5Cbf%20a%7D%5E%7B%280%29%7D%3D%28a_1%5E%7B%280%29%7D%2Ca_2%5E%7B%280%29%7D%2Ca_3%5E%7B%280%29%7D%29%3D%281%2C1%2C1%29). Store the simulated vector in ![](http://latex.codecogs.com/gif.latex?%5Ctexttt%7Btheta.0%7D) and vector ![](http://latex.codecogs.com/gif.latex?%7B%5Cbf%20a%7D%5E%7B%280%29%7D) in ![](http://latex.codecogs.com/gif.latex?%5Ctexttt%7Ba.0%7D).
 
 <details><summary>Click Here to see the answer</summary><p>
 
@@ -84,7 +85,6 @@ theta.0
 ```
 </p></details>
 <br/>
-<br/>
 
 * Calculate the probability density for the vector (0.15,0.25,0.6), that is, $p_{\bteta}[(0.15,0.25,0.6)]$.
 
@@ -94,7 +94,6 @@ theta.0
 ddirichlet(c(0.15,0.25,0.6),a.0) # Note: prob density function > 0
 ```
 </p></details>
-<br/>
 <br/>
 
 * The Dirichlet distribution is the conjugate prior of the Multinomial distribution, by achiving the following result:   $p_{\bteta|\bf x}(\bteta)\propto \theta_1^{\;{\color{blue}a_1+x_1}-1}\theta_2^{\;{\color{blue}a_2+x_2}-1}\theta_3^{\;{\color{blue}a_3+x_3}-1}$.
@@ -115,7 +114,7 @@ updated.theta
 
 **Step 3.** The Gibbs Sampler.
 
-* Develop a function in $\texttt{R}$ for the Gibbs Sampler. Consider 5000 iterations ($\texttt{nr.iter}=5000$).
+* Develop a function in $\texttt{R}$ for the Gibbs Sampler. Consider 5000 iterations.
 
 * Store the updated parameters for each iteration in a  matrix of order $\texttt{nr.iter}\times 3$.
 
@@ -152,7 +151,6 @@ plot(1:nr.iter,theta.all.iter[,2],ylim=c(0,0.5),main=expression(paste("Trace for
 plot(1:nr.iter,theta.all.iter[,3],ylim=c(0,0.5),main=expression(paste("Trace for ",theta[3])),ylab=expression(theta),xlab="iteration")
 ```
 </p></details>
-<br/>
 <br/>
 
 * Evaluate the need of setting a period of burn-in.
