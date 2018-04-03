@@ -14,23 +14,23 @@ At the end of this challenge, you should be able to:
 **Step 1.** Simulate the data - Multinomial Distribution
 
 * Learn about [Multinomial ditribution](https://en.wikipedia.org/wiki/Multinomial_distribution). For the three-dimensional case we have:
-$${\bf X}=(X_1,X_2,X_3)\frown Multinomial(n;\theta_1,\theta_2,\theta_3)$$
 
 ![eq1](http://latex.codecogs.com/gif.latex?%7B%5Cbf%20X%7D%3D%28X_1%2CX_2%2CX_3%29%5Cfrown%20Multinomial%28n%3B%5Ctheta_1%2C%5Ctheta_2%2C%5Ctheta_3%29)
 
-where $X_i\in\{0,1,2,\ldots\}$\: and\: $\theta_1+\theta_2+\theta_3=1\quad (\theta_i>0)$
-$$P[(X_1,X_2,X_3)=(x_1,x_2,x_3)\ |\ \theta_1,\theta_2,\theta_3]=\dfrac{n!}{x_1!x_2!x_3!}\ \theta_1^{\;x_1}\theta_2^{\;x_2}\theta_3^{\;x_3}$$
+where !(http://latex.codecogs.com/gif.latex?X_i%5Cin%5C%7B0%2C1%2C2%2C%5Cldots%5C%7D) and !(http://latex.codecogs.com/gif.latex?%24%5Ctheta_1&plus;%5Ctheta_2&plus;%5Ctheta_3%3D1%5Cquad%20%28%5Ctheta_i%3E0%29%24)
 
-* Search for the $\texttt{R}$ function which generates multinomially distributed random number vectors and computes multinomial probabilities.
+!(http://latex.codecogs.com/gif.latex?%24%24P%5B%28X_1%2CX_2%2CX_3%29%3D%28x_1%2Cx_2%2Cx_3%29%5C%20%7C%5C%20%5Ctheta_1%2C%5Ctheta_2%2C%5Ctheta_3%5D%3D%5Cdfrac%7Bn%21%7D%7Bx_1%21x_2%21x_3%21%7D%5C%20%5Ctheta_1%5E%7B%5C%3Bx_1%7D%5Ctheta_2%5E%7B%5C%3Bx_2%7D%5Ctheta_3%5E%7B%5C%3Bx_3%7D%24%24)
 
+* Search for the !(http://latex.codecogs.com/gif.latex?%24%5Ctexttt%7BR%7D%24) function which generates multinomially distributed random number vectors and computes multinomial probabilities.
+
+<details><summary>Click Here to see the answer</summary><p>
 
 ```r
 ?rmultinom
 ```
-
-```
-## starting httpd help server ... done
-```
+</p></details>
+<br/>
+<br/>
 
 * Simulate 1 random vector, ${\bf x}=(x_{1},x_{2},x_{3})$, following a Multinomial distribution with parameters $n=1000$ and $\bteta=(\theta_1,\theta_2,\theta_3)=(0.2,0.3,0.5)$. Store the simulated data in an object named $\texttt{data}$.
 
