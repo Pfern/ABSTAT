@@ -1,14 +1,5 @@
----
-title: "Advanced Biostatistics 2018 - Practical Exercises"
-#author: "lisete"
-#date: "3 de abril de 2018"
-output:
-  html_document:
-     keep_md: true
----
 
-
-## Gibbs Sampling
+## Practical Exercise - Gibbs Sampling
 
 At the end of this challenge, you should be able to:
 
