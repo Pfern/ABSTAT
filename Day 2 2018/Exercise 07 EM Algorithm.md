@@ -1,34 +1,20 @@
----
-title: "Advanced Biostatistics 2018 - Practical Exercises"
-#author: "lisete"
-#date: "3 de abril de 2018"
-output:
-  html_document:
-     keep_md: true
----
 
-x <- rmarkdown::render("file.RMD", run_pandoc = FALSE, clean = FALSE)
-knit_meta <- attr(x, "knit_meta") 
-rmarkdown::render(input = 'file.knit.md', knit_meta = knit_meta )
-
-<style type="text/css"> body, td { font-size: 18px; } code.r{ font-size: 18px; } pre { font-size: 16px }  </style>
-
-## EM Algorithm
+## Practical Exercise - EM Algorithm
 
 The main locus for the blood type of mice is called Ag-B (B). Several alleles are associated to this locus but for some crossovers Mendel's laws do not seem to hold. A mating $AaBb\times AaBb\equiv F_1\times F_1$, originated a $F_2$ progeny, yielding
 
 
   | Genotype  | Frequency | Probability                     |
   |-----------|-----------|---------------------------------|
-  | AABB      |    11     | $(1-\theta)^2/4$                |
-  | AABb      |    14     | $\theta(1-\theta)/2$            |
-  | AAbb      |     1     | $\theta^2/4$                    |
-  | AaBB      |    10     | $\theta(1-\theta)/2$            |
-  | AaBb      |    27     | $(\theta^2/2)+[(1-\theta)^2]/2$ |
-  | Aabb      |    12     | $\theta(1-\theta)/2$            |
-  | aaBB      |     3     | $\theta^2/4$                    |
-  | aaBb      |    13     | $\theta(1-\theta)/2$            |
-  | aabb      |    11     | $(1-\theta)^2/4$                |
+  | AABB      |    11     | ![](http://latex.codecogs.com/gif.latex?%24%281-%5Ctheta%29%5E2/4%24)               |
+  | AABb      |    14     | ![](http://latex.codecogs.com/gif.latex?%24%5Ctheta%281-%5Ctheta%29/2%24)           |
+  | AAbb      |     1     | ![](http://latex.codecogs.com/gif.latex?%24%5Ctheta%5E2/4%24)                    |
+  | AaBB      |    10     | ![](http://latex.codecogs.com/gif.latex?%24%5Ctheta%281-%5Ctheta%29/2%24)            |
+  | AaBb      |    27     | ![](http://latex.codecogs.com/gif.latex?%24%28%5Ctheta%5E2/2%29&plus;%5B%281-%5Ctheta%29%5E2%5D/2%24) |
+  | Aabb      |    12     | ![](http://latex.codecogs.com/gif.latex?%24%5Ctheta%281-%5Ctheta%29/2%24)             |
+  | aaBB      |     3     | ![](http://latex.codecogs.com/gif.latex?%24%5Ctheta%5E2/4%24)                    |
+  | aaBb      |    13     | ![](http://latex.codecogs.com/gif.latex?%24%5Ctheta%281-%5Ctheta%29/2%24)             |
+  | aabb      |    11     | ![](http://latex.codecogs.com/gif.latex?%24%281-%5Ctheta%29%5E2/4%24)                 |
 
 Estimate the recombination fraction, $\theta$, from these data by the EM algorithm.
 
@@ -36,6 +22,7 @@ Estimate the recombination fraction, $\theta$, from these data by the EM algorit
 
 * Read the data and state ao many recombinant gametes are there for each genotype.
 
+<details><summary>Click Here to see the answer</summary><p>
 
 ```r
 nAABB<-11  # 0 recombinant gametes
@@ -48,41 +35,57 @@ naaBB<-3   # 2 recombinant gametes
 naaBb<-13  # 1 recombinant gamete
 naabb<-11  # 0 recombinant gametes
 ```
+</p></details>
+<br/>
 
 * Calculate $n_1$, the number of individuals from 1 recombinant gametes ($\texttt{n1}$).
 
+<details><summary>Click Here to see the answer</summary><p>
 
 ```r
 n1 <- nAABb + nAaBB + nAabb + naaBb
 n1
 ```
+</p></details>
+<br/>
 
 * Calculate $n_2$, the number of individuals from 2 recombinant gametes ($\texttt{n2}$).
 
 Note that $n_{AaBb}=n_2^*+n_0^*$.
 
+<details><summary>Click Here to see the answer</summary><p>
 
 ```r
 n2.star <- NULL
 n2 <- nAAbb + naaBB + n2.star
 ```
+</p></details>
+<br/>
 
 * Calculate $n$, the total number of individuals ($\texttt{n}$).
 
+<details><summary>Click Here to see the answer</summary><p>
 
 ```r
 n <- n1 + nAAbb + naaBB + nAABB + nAaBb + naabb
 n
 ```
+</p></details>
+<br/>
+<br/>
 
 **Step 2**
 
 * Initialize $\theta\in]0,0.5[$ ($\texttt{r}$).
 
+<details><summary>Click Here to see the answer</summary><p>
 
 ```r
 r <- 0.3
 ```
+</p></details>
+<br/>
+<br/>
 
 **Step 3 - E (Expectation)**
 
@@ -102,6 +105,9 @@ expected <- function(r)
  n2.star
 }
 ```
+</p></details>
+<br/>
+<br/>
 
 **Step 4 - M (Maximization)**
 
@@ -111,6 +117,7 @@ $\theta=\dfrac{n_1+2(n_{AAbb}+n_{aaBB}+n_2^*)}{2n}$
 
 meaning that the proportion of recombinant gametes is calculated as the total number of recombinant gametes (0, 1 or 2 for each individual) over the total number of gametes for $n$ individuals.
 
+<details><summary>Click Here to see the answer</summary><p>
 
 ```r
 update.theta <- function(n2.star)
@@ -119,11 +126,15 @@ r <- (n1+2*(nAAbb+naaBB+n2.star))/(2*n)
 r
 }
 ```
+</p></details>
+<br/>
+<br/>
 
 **Step 5 - Iterative procedure**
 
 * Compute the cycle.
 
+<details><summary>Click Here to see the answer</summary><p>
 
 ```r
 i<-0
@@ -142,10 +153,16 @@ while(er>=error)
  cat(i,r,"$\backslash$n") 
 } 
 ```
+</p></details>
+<br/>
+<br/>
 
 **Step 6 - Print the results**
 
+<details><summary>Click Here to see the answer</summary><p>
 
 ```r
 cat("\nThe final solution, after",i,"iterations, is r* =",r,"\n")
 ```
+</p></details>
+<br/>
