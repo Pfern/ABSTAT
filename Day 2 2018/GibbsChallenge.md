@@ -86,7 +86,7 @@ theta.0
 </p></details>
 <br/>
 
-* Calculate the probability density for the vector (0.15,0.25,0.6), that is, $p_{\bteta}[(0.15,0.25,0.6)]$.
+* Calculate the probability density for the vector (0.15,0.25,0.6), that is, ![](http://latex.codecogs.com/gif.latex?p_%7B%5Cboldsymbol%5Ctheta%7D%5B%280.15%2C0.25%2C0.6%29%5D).
 
 <details><summary>Click Here to see the answer</summary><p>
 
@@ -96,10 +96,9 @@ ddirichlet(c(0.15,0.25,0.6),a.0) # Note: prob density function > 0
 </p></details>
 <br/>
 
-* The Dirichlet distribution is the conjugate prior of the Multinomial distribution, by achiving the following result:   $p_{\bteta|\bf x}(\bteta)\propto \theta_1^{\;{\color{blue}a_1+x_1}-1}\theta_2^{\;{\color{blue}a_2+x_2}-1}\theta_3^{\;{\color{blue}a_3+x_3}-1}$.
+* The Dirichlet distribution is the conjugate prior of the Multinomial distribution, by achiving the following result:   ![](http://latex.codecogs.com/gif.latex?p_%7B%5Cboldsymbol%5Ctheta%7C%5Cbf%20x%7D%28%5Cboldsymbol%5Ctheta%29%5Cpropto%20%5Ctheta_1%5E%7B%5C%3B%7B%5Ccolor%7Bblue%7Da_1&plus;x_1%7D-1%7D%5Ctheta_2%5E%7B%5C%3B%7B%5Ccolor%7Bblue%7Da_2&plus;x_2%7D-1%7D%5Ctheta_3%5E%7B%5C%3B%7B%5Ccolor%7Bblue%7Da_3&plus;x_3%7D-1%7D).
 
-  Simulate $\bteta^{(1)}$ knowing **x** and $\bteta^{(0)}$,
-directly from de posterior distribution (Dirichlet).
+Simulate ![](http://latex.codecogs.com/gif.latex?%5Cboldsymbol%5Ctheta%5E%7B%281%29%7D) knowing **x** and ![](http://latex.codecogs.com/gif.latex?%5Cboldsymbol%5Ctheta%5E%7B%280%29%7D), directly from de posterior distribution (Dirichlet).
 
 <details><summary>Click Here to see the answer</summary><p>
 
@@ -114,9 +113,9 @@ updated.theta
 
 **Step 3.** The Gibbs Sampler.
 
-* Develop a function in $\texttt{R}$ for the Gibbs Sampler. Consider 5000 iterations.
+* Develop a function in ![](http://latex.codecogs.com/gif.latex?%24%5Ctexttt%7BR%7D%24) for the Gibbs Sampler. Consider 5000 iterations.
 
-* Store the updated parameters for each iteration in a  matrix of order $\texttt{nr.iter}\times 3$.
+* Store the updated parameters for each iteration in a  matrix of order ![](http://latex.codecogs.com/gif.latex?%24%5Ctexttt%7Bnr.iter%7D%5Ctimes%203%24).
 
 <details><summary>Click Here to see the answer</summary><p>
 
