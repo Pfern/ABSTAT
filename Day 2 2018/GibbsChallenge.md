@@ -1,19 +1,3 @@
----
-title: "Advanced Biostatistics 2018 - Practical Exercises"
-#author: "lisete"
-#date: "3 de abril de 2018"
-output:
-  html_document:
-     keep_md: true
----
-
-x <- rmarkdown::render("file.RMD", run_pandoc = FALSE, clean = FALSE)
-knit_meta <- attr(x, "knit_meta") 
-rmarkdown::render(input = 'file.knit.md', knit_meta = knit_meta )
-
-
-<style type="text/css"> body, td { font-size: 18px; } code.r{ font-size: 18px; } pre { font-size: 16px }  </style>
-
 \newcommand{\bteta}{\boldsymbol{\theta}}
 
 ## Gibbs Sampling
@@ -32,7 +16,7 @@ At the end of this challenge, you should be able to:
 * Learn about [Multinomial ditribution](https://en.wikipedia.org/wiki/Multinomial_distribution). For the three-dimensional case we have:
 $${\bf X}=(X_1,X_2,X_3)\frown Multinomial(n;\theta_1,\theta_2,\theta_3)$$
 
-http://latex.codecogs.com/gif.latex?%7B%5Cbf%20X%7D%3D%28X_1%2CX_2%2CX_3%29%5Cfrown%20Multinomial%28n%3B%5Ctheta_1%2C%5Ctheta_2%2C%5Ctheta_3%29
+![eq1](http://latex.codecogs.com/gif.latex?%7B%5Cbf%20X%7D%3D%28X_1%2CX_2%2CX_3%29%5Cfrown%20Multinomial%28n%3B%5Ctheta_1%2C%5Ctheta_2%2C%5Ctheta_3%29)
 
 where $X_i\in\{0,1,2,\ldots\}$\: and\: $\theta_1+\theta_2+\theta_3=1\quad (\theta_i>0)$
 $$P[(X_1,X_2,X_3)=(x_1,x_2,x_3)\ |\ \theta_1,\theta_2,\theta_3]=\dfrac{n!}{x_1!x_2!x_3!}\ \theta_1^{\;x_1}\theta_2^{\;x_2}\theta_3^{\;x_3}$$
@@ -67,7 +51,7 @@ dmultinom(c(220,350,430),1000,theta)
 
 **Step 2.** Dirichlet Distribution - Prior / Posterior Distribution
 
-* Learn about [Dirichlet ditribution] (https://en.wikipedia.org/wiki/Dirichlet_distribution). For the three-dimensional case we have:
+* Learn about [Dirichlet ditribution](https://en.wikipedia.org/wiki/Dirichlet_distribution). For the three-dimensional case we have:
 
 $$\bteta=(\theta_1,\theta_2,\theta_3)\frown Dirichlet(a_1,a_2,a_3)$$
 
