@@ -154,19 +154,14 @@ lines(density(pois2),col="red")
 
 ## Monte Carlo Simulation
 
-**Exercise 3** The following measurements were given for weights (Kg) of 11
-children with ages between 8 and 10 years old with renal disfunction: 38.43, 38.43, 38.39, 38.83, 38.45, 38.35, 38.43, 38.31,
-38.32, 38.48, 38.50.
+**1.1**  Generate 1000 MC replicates from samples of size 15 of a normal distribution with mu=1 and sigma=1.7.
+**1.2** Get the following MC estimates: MC mean, MC standard
+deviation, MC bias and MC MSE, of the true parameter mu,
+considering the sample mean, 20% trimmed mean and median
+estimators.
+**1.3** Compare the results and choose the best estimator.
 
-**3.1** Find the 95% parametric bootstrap confidence interval for the mean value (mu)
-assuming the normal distribution for the observations and
-sigma = 0.57. 
 
-**3.2**Compare with the classical analytic approach based on
-the t-distribution.
-
-**N.B**:Use B=1000 bootstrap samples (each sample hence consisting
-of 11 measurements).
 
 <details><summary>Click Here to see the answer</summary><p>
   
